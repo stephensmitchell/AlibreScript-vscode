@@ -1,0 +1,117 @@
+{
+  "name": "alibrescript",
+  "displayName": "AlibreScript",
+  "description": "AlibreScript API support with type hints, autocomplete, examples, and interactive notebooks for Alibre Design",
+  "version": "0.0.3",
+  "publisher": "stephensmitchell",
+  "author": {
+    "name": "Stephen S. Mitchell",
+    "url": "https://github.com/stephensmitchell"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephensmitchell/alibrescript-vscode"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Education"
+  ],
+  "keywords": [
+    "alibre",
+    "alibrescript",
+    "cad",
+    "3d modeling",
+    "automation",
+    "ironpython"
+  ],
+  "activationEvents": [
+    "onLanguage:python",
+    "workspaceContains:**/*.alibre.py"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "python",
+        "extensions": [".alibre.py"],
+        "aliases": ["AlibreScript"]
+      }
+    ],
+    "commands": [
+      {
+        "command": "alibrescript.newScript",
+        "title": "AlibreScript: New Script from Template"
+      },
+      {
+        "command": "alibrescript.newNotebook",
+        "title": "AlibreScript: New Interactive Notebook"
+      },
+      {
+        "command": "alibrescript.openExample",
+        "title": "AlibreScript: Open Example"
+      },
+      {
+        "command": "alibrescript.viewDocs",
+        "title": "AlibreScript: View API Documentation"
+      },
+      {
+        "command": "alibrescript.showAbout",
+        "title": "AlibreScript: About & Welcome"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./snippets/alibrescript.json"
+      }
+    ],
+    "configuration": {
+      "title": "AlibreScript",
+      "properties": {
+        "alibrescript.enableTypeHints": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable type hints and autocomplete for AlibreScript API"
+        },
+        "alibrescript.alibrePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to Alibre Design installation (optional, for advanced features)"
+        },
+        "alibrescript.showWelcomeOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show welcome screen when extension is installed or updated"
+        }
+      }
+    },
+    "notebooks": [
+      {
+        "type": "jupyter-notebook",
+        "displayName": "AlibreScript Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.alibre.ipynb"
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "dependencies": {}
+}

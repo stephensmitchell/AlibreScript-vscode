@@ -1,0 +1,169 @@
+{
+  "AlibreScript Import": {
+    "prefix": "alibre-import",
+    "body": [
+      "# Auto-import all AlibreScript classes (for VS Code autocomplete only)",
+      "from AlibreScript import *",
+      "",
+      "$0"
+    ],
+    "description": "Import all AlibreScript classes for autocomplete"
+  },
+  "New Part": {
+    "prefix": "alibre-part",
+    "body": [
+      "# Create a new part",
+      "MyPart = Part('${1:Part Name}')",
+      "${2:# Add your code here}",
+      "$0"
+    ],
+    "description": "Create a new Alibre part"
+  },
+  "Add Sketch": {
+    "prefix": "alibre-sketch",
+    "body": [
+      "# Add a sketch",
+      "${1:sketch_name} = ${2:MyPart}.AddSketch('${3:Sketch Name}', ${4:MyPart.XYPlane})",
+      "$0"
+    ],
+    "description": "Add a sketch to a part"
+  },
+  "Add Circle": {
+    "prefix": "alibre-circle",
+    "body": [
+      "${1:sketch}.AddCircle(${2:centerX}, ${3:centerY}, ${4:radius}, ${5:False})",
+      "$0"
+    ],
+    "description": "Add a circle to a sketch"
+  },
+  "Add Line": {
+    "prefix": "alibre-line",
+    "body": [
+      "${1:sketch}.AddLine(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2}, ${6:False})",
+      "$0"
+    ],
+    "description": "Add a line to a sketch"
+  },
+  "Add Rectangle": {
+    "prefix": "alibre-rectangle",
+    "body": [
+      "${1:sketch}.AddRectangle(${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:False})",
+      "$0"
+    ],
+    "description": "Add a rectangle to a sketch"
+  },
+  "Extrude Boss": {
+    "prefix": "alibre-extrude-boss",
+    "body": [
+      "${1:feature} = ${2:MyPart}.AddExtrudeBoss('${3:Feature Name}', ${4:sketch}, ${5:depth}, ${6:False})",
+      "$0"
+    ],
+    "description": "Add an extrude boss feature"
+  },
+  "Extrude Cut": {
+    "prefix": "alibre-extrude-cut",
+    "body": [
+      "${1:feature} = ${2:MyPart}.AddExtrudeCut('${3:Feature Name}', ${4:sketch}, ${5:depth}, ${6:False})",
+      "$0"
+    ],
+    "description": "Add an extrude cut feature"
+  },
+  "User Input": {
+    "prefix": "alibre-input",
+    "body": [
+      "# Get user input",
+      "print '${1:Enter value}:'",
+      "${2:value} = float(Read())",
+      "$0"
+    ],
+    "description": "Get user input"
+  },
+  "Options Dialog": {
+    "prefix": "alibre-dialog",
+    "body": [
+      "# Show options dialog",
+      "inputs = [",
+      "  ['${1:Width}', 'float', ${2:10}],",
+      "  ['${3:Height}', 'float', ${4:20}],",
+      "  ['${5:Depth}', 'float', ${6:5}]",
+      "]",
+      "values = Windows.OptionsDialog('${7:Title}', inputs)",
+      "${8:width}, ${9:height}, ${10:depth} = values",
+      "$0"
+    ],
+    "description": "Show options dialog for user input"
+  },
+  "Add Assembly": {
+    "prefix": "alibre-assembly",
+    "body": [
+      "# Create a new assembly",
+      "MyAssembly = Assembly('${1:Assembly Name}')",
+      "$0"
+    ],
+    "description": "Create a new assembly"
+  },
+  "Add Plane": {
+    "prefix": "alibre-plane",
+    "body": [
+      "${1:plane} = ${2:MyPart}.AddPlane('${3:Plane Name}', ${4:MyPart.XYPlane}, ${5:offset})",
+      "$0"
+    ],
+    "description": "Add a reference plane"
+  },
+  "Add Axis": {
+    "prefix": "alibre-axis",
+    "body": [
+      "${1:axis} = ${2:MyPart}.AddAxis('${3:Axis Name}', ${4:plane1}, ${5:plane2})",
+      "$0"
+    ],
+    "description": "Add a reference axis"
+  },
+  "Add Point": {
+    "prefix": "alibre-point",
+    "body": [
+      "${1:point} = ${2:MyPart}.AddPoint('${3:Point Name}', [${4:x}, ${5:y}, ${6:z}])",
+      "$0"
+    ],
+    "description": "Add a reference point"
+  },
+  "Save Part": {
+    "prefix": "alibre-save",
+    "body": [
+      "# Save the part",
+      "${1:MyPart}.Save('${2:C:\\\\Path\\\\To\\\\Folder}')",
+      "$0"
+    ],
+    "description": "Save a part to disk"
+  },
+  "Export STL": {
+    "prefix": "alibre-export-stl",
+    "body": [
+      "# Export to STL",
+      "${1:MyPart}.ExportSTL('${2:C:\\\\Path\\\\To\\\\File.stl}')",
+      "$0"
+    ],
+    "description": "Export part to STL format"
+  },
+  "Complete Script Template": {
+    "prefix": "alibre-template",
+    "body": [
+      "# AlibreScript: ${1:Description}",
+      "# Created: ${CURRENT_DATE}",
+      "",
+      "# Create part",
+      "MyPart = Part('${2:Part Name}')",
+      "",
+      "# Add sketch",
+      "sketch = MyPart.AddSketch('Sketch', MyPart.XYPlane)",
+      "${3:# Add sketch geometry}",
+      "",
+      "# Create features",
+      "${4:# Add features}",
+      "",
+      "# Save (optional)",
+      "# MyPart.Save('C:\\\\Path\\\\To\\\\Folder')",
+      "$0"
+    ],
+    "description": "Complete AlibreScript template"
+  }
+}
